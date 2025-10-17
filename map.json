@@ -502,5 +502,22 @@
       "Lone Mountain": 1999.24
     }
   },
-  "Lone Mountain":
+  "Dunstad Grove": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Morthal":  1114.15,
+      "Bromjunaar": 689.34,
+      "Stonehills": 1385.24
+    }
+  },
+  "Bromjunaar": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Dunstad Grove":  689.34,
+      "Redoran Retreat": 2397.77,
+
+    }
+  }
 }
