@@ -392,7 +392,8 @@
       "Lainalten": 772.93,
       "Orotheim": 1459.06,
       "Sungard": 1928.47,
-      "Lone Mountain": 2755.66
+      "Lone Mountain": 2755.66,
+      "Rannveig": 2258.91
     }
   },
   "Lost valley": {
@@ -482,13 +483,24 @@
     "x":,
     "y":,
     "neighbors": {
-      "Fort Snowhawk":978.61,
+      "Fort Snowhawk": 978.61,
       "Ustengrav": 1551.27,
       "Folghuntur": 1491.92,
       "Drajkmyr": 1577.96,
-      "Kjenstag":1260.13,
+      "Kjenstag": 1260.13,
       "Dunstad Grove": 1114.15,
       "Rannveig": 2148.16
     }
-  }
+  },
+  "Rannveig": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Morthal": 2148.16,
+      "Rorikstead": 2258.91,
+      "Redoran Retreat": 2506.92,
+      "Lone Mountain": 1999.24
+    }
+  },
+  "Lone Mountain":
 }
