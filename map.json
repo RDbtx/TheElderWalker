@@ -767,7 +767,7 @@
     "neighbors": {
       "Honningbrew": 1487.45,
       "Valtheim": 1264.02,
-      "Nimalten": 3047.75
+      "Nimalten City": 3047.75
     }
   },
   "Valtheim": {
@@ -893,7 +893,7 @@
     "x":,
     "y":,
     "neighbors": {
-      "Sarthaal": 2477.4,
+      "Saarthal": 2477.4,
       "Nightcaller": 1693.53,
       "Fellhammer": 796.27
     }
@@ -926,6 +926,344 @@
       "Korvanjund": 438.26,
       "Nightgate Inn": 911.47
     }
+  },
+  "Nightgate Inn": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Aftland": 1658.37,
+      "Laintar Dale": 464.76,
+      "Silverdrift": 911.47,
+      "Amol": 1319.83
+    }
+  },
+  "Laintar Dale": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Gallow's Rock": 2206.88,
+      "Nightgate Inn": 464.76
+    }
+  },
+  "Gallow's Rock": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Laintar Dale": 2206.88,
+      "Amol": 2211.34
+    }
+  },
+  "Amol": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Nightgate Inn": 1319.83,
+      "Gallow's Rock": 2211.34,
+      "Fort Amol": 918.01,
+      "Braidwood": 2629.82
+    }
+  },
+  "Fort Amol": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Whistling Mine": 1835.45,
+      "Snow Veil": 2144.45,
+      "Amol": 918.01,
+      "Braidwood": 2629.82
+    }
+  },
+  "Whistling Mine": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Fort Amol": 1835.45,
+      "Snow Veil": 1119.29,
+      "Winterhold": 1573.44
+    }
+  },
+  "Winterhold": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Saarthal": 1067.31,
+      "College of Winterhold": 619.80,
+      "Whistling Mine": 1573.44
+    }
+  },
+  "College of Winterhold": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Winterhold": 619.80
+    }
+  },
+  "Saarthal": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Winterhold": 1067.31,
+      "Aftland": 948.63,
+      "Helarchen Creek": 2477.4
+    }
+  },
+  "Aftland": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Nightgate Inn": 1067.31,
+      "Saarthal": 1658.37
+    }
+  },
+  "Snow Veil": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Fort Amol": 2144.45,
+      "Whistling Mine": 1119.29,
+      "Windhelm": 1903.20
+    }
+  },
+  "Windhelm": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Braidwood": 670.29,
+      "Snow Veil": 1903.20
+    }
+  },
+  "Braidwood": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Windhelm": 670.29,
+      "Amol": 2629.82,
+      "Fort Yngol": 1868.15,
+      "Kynesgrove": 965.31,
+      "Pargran Village": 4032.62
+    }
+  },
+  "Fort Yngol": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Braidwood": 1868.15,
+      "Dunmeth Pass": 470.44
+    }
+  },
+  "Dunmeth Pass": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Fort Yngol": 470.44
+    }
+  },
+  "Pargran Village": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Braidwood": 4032.62,
+      "Darkshade": 1109.75,
+      "Vernim Wood": 3766.2,
+      "Nimalten City": 2036.1
+    }
+  },
+  "Nimalten City": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Ivarstead": 1107.05,
+      "Graywinter": 3047.75,
+      "Pargran Village": 2036.1
+    }
+  },
+  "Darkshade": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Valtheim": 1129.93,
+      "Pargran Village": 1109.75
+    }
+  },
+  "Kynesgrove": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Braidwood": 965.31,
+      "Dragon Wood": 439.02,
+      "Aalto": 1475.12
+    }
+  },
+  "Dragon Wood": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Narzulbur": 709.31,
+      "Kynesgrove": 439.02
+    }
+  },
+  "Narzulbur": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Dragon Wood": 709.31,
+      "Aalto": 1809.21,
+      "Vernim Wood": 2437.02
+    }
+  },
+  "Aalto": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Kynesgrove": 1475.12,
+      "Narzulbur": 1809.21,
+      "Vernim Wood": 1730.35
+    }
+  },
+  "Vernim Wood": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Narzulbur": 2437.02,
+      "Pargran Village": 3766.2,
+      "Aalto": 1730.35,
+      "Nilheim": 3543.9,
+      "Shor's Stone": 1423.76
+    }
+  },
+  "Shor's Stone": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Reich Corigate": 1237.72,
+      "Fort Greenwall": 627.79,
+      "Vernim Wood": 1423.76
+    }
+  },
+  "Reich Corigate": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Shor's Stone": 1237.72,
+      "Fort Greenwall": 1584.59,
+      "Nilheim": 2014.69
+    }
+  },
+  "Fort Greenwall": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Shor's Stone": 627.79,
+      "Reich Corigate": 1584.59,
+      "Riften": 1345.77,
+      "Greenwall": 1604.60
+    }
+  },
+  "Nilheim": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Sunguard": 1597.71,
+      "Haemar's Shame": 3674.81,
+      "Vernim Wood": 3543.9,
+      "Reich Corigate": 2014.69,
+      "Ivarstead": 1376.67
+    }
+  },
+  "Sunguard": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Nilheim": 1597.71,
+      "Largashbur": 1978.08,
+      "Greenwall": 1793.53,
+      "Haemar's Shame": 4315.71
+    }
+  },
+  "Ivarstead": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Nimalten City": 1107.05,
+      "Nilheim": 1978.08,
+      "Haemar's Shame": 2216.64,
+      "High Hrotgar": 4400.43
+    }
+  },
+  "High Hrotgar": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Throat of the World": 2196.71,
+      "High Hrotgar": 4400.43
+    }
+  }
+  "Throat of the World": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "High Hrotgar": 2196.71
+    }
+  },
+  "Haemar's Shame": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Ivarstead": 2216.64,
+      "Sunguard": 4315.71,
+      "Helgen": 2012.34,
+      "Nilheim": 3674.81
+    }
+  },
+  "Greenwall": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Fort Greenwall": 1604.60,
+      "Sunguard": 1793.53,
+      "Largashbur": 1542.45,
+      "Riften": 1920.15
+    }
+  },
+  "Largashbur": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Vundeheim": 2601.11,
+      "Sunguard": 1978.08,
+      "Greenwall": 1542.45,
+      "Riften": 2259.41
+    }
+  },
+  "Vundeheim": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Largashbur": 2601.11,
+      "Fort Dawnguard": 1843.46,
+      "Riften": 1566.22
+    }
+  },
+  "Fort Dawnguard": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Vundeheim": 1843.46,
+      "Riften": 2169.18
+    }
+  },
+  "Riften": {
+    "x":,
+    "y":,
+    "neighbors": {
+      "Vundeheim": 1566.22,
+      "Fort Dawnguard": 2169.18,
+      "Largashbur": 2259.41,
+      "Greenwall":1920.15,
+      "Fort Greenwall":1345.77
+    }
   }
 }
+
+
 
