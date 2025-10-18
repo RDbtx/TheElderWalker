@@ -100,28 +100,28 @@ def dijkstra(graph: Graph, start: Location, goal: Location):
     """
     dist = {start: 0.0}
     came_from = {}
-    pq = []
+    priorityqueque = []
     counter = count()
-    heapq.heappush(pq, (0.0, next(counter), start))
+    heapq.heappush(priorityqueque, (0.0, next(counter), start))
     visited = set()
     nodes_expanded = 0
 
-    while pq:
-        d, _, node = heapq.heappop(pq)
+    while priorityqueque:
+        cost, _, node = heapq.heappop(priorityqueque)
         if node in visited:
             continue
         visited.add(node)
         nodes_expanded += 1
 
         if node == goal:
-            return reconstruct_path(came_from, start, goal), d, nodes_expanded
+            return reconstruct_path(came_from, start, goal), cost, nodes_expanded
 
-        for nbr, w in graph.neighbors(node).items():
-            nd = d + w
-            if nd < dist.get(nbr, math.inf):
-                dist[nbr] = nd
-                came_from[nbr] = node
-                heapq.heappush(pq, (nd, next(counter), nbr))
+        for neighbor, weight in graph.neighbors(node).items():
+            new_cost = cost + weight
+            if new_cost < dist.get(neighbor, math.inf):
+                dist[neighbor] = new_cost
+                came_from[neighbor] = node
+                heapq.heappush(priorityqueque, (new_cost, next(counter), neighbor))
 
     return [], math.inf, nodes_expanded
 
@@ -170,14 +170,14 @@ def astar(graph: Graph, start: Location, goal: Location, heuristic=None):
 
     g_score = {start: 0.0}
     came_from = {}
-    pq = []
+    priorityqueque = []
     counter = count()
-    heapq.heappush(pq, (heuristic(start, goal), next(counter), start))
+    heapq.heappush(priorityqueque, (heuristic(start, goal), next(counter), start))
     closed = set()
     nodes_expanded = 0
 
-    while pq:
-        _, __, node = heapq.heappop(pq)
+    while priorityqueque:
+        _, __, node = heapq.heappop(priorityqueque)
         if node in closed:
             continue
         closed.add(node)
@@ -186,12 +186,12 @@ def astar(graph: Graph, start: Location, goal: Location, heuristic=None):
         if node == goal:
             return reconstruct_path(came_from, start, goal), g_score[node], nodes_expanded
 
-        for nbr, w in graph.neighbors(node).items():
-            tentative_g = g_score[node] + w
-            if tentative_g < g_score.get(nbr, math.inf):
-                came_from[nbr] = node
-                g_score[nbr] = tentative_g
-                f = tentative_g + heuristic(nbr, goal)
-                heapq.heappush(pq, (f, next(counter), nbr))
+        for neighbor, weight in graph.neighbors(node).items():
+            tentative_g = g_score[node] + weight
+            if tentative_g < g_score.get(neighbor, math.inf):
+                came_from[neighbor] = node
+                g_score[neighbor] = tentative_g
+                f = tentative_g + heuristic(neighbor, goal)
+                heapq.heappush(priorityqueque, (f, next(counter), neighbor))
 
     return [], math.inf, nodes_expanded
