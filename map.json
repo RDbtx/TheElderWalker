@@ -544,7 +544,7 @@
     "x": 737,
     "y": 885,
     "neighbors": {
-      "Sungard": 1999.24,
+      "Sungard": 1202.31,
       "Lone Mountain": 1061.69,
       "Granitehall": 954.22
     }
@@ -654,7 +654,7 @@
     "neighbors": {
       "Pale Pass": 1542.08,
       "Neugard": 1925.94,
-      "Peak Shade": 1979.71
+      "Peak Shade": 1993.85
     }
   },
   "Pale Pass": {
@@ -724,10 +724,10 @@
     "x": 950,
     "y": 878,
     "neighbors": {
-      "Lone Mountain": 1061.69,
+      "Lone Mountain": 1255.58,
       "Redoran Retreat": 1017.26,
       "Granitehall": 2493.42,
-      "Brittelshin Pass": 2268.02,
+      "Brittelshin Pass": 1755.73,
       "Whiterun": 1903.20,
       "Honningbrew": 1992.26
     }
@@ -1011,8 +1011,8 @@
     "x": 1437,
     "y": 393,
     "neighbors": {
-      "Nightgate Inn": 1067.31,
-      "Saarthal": 1658.37
+      "Nightgate Inn": 1658.37,
+      "Saarthal": 948.63
     }
   },
   "Snow Veil": {
@@ -1185,7 +1185,7 @@
     "y": 1163,
     "neighbors": {
       "Nimalten City": 1107.05,
-      "Nilheim": 1978.08,
+      "Nilheim": 1376.67,
       "Haemar's Shame": 2216.64,
       "High Hrotgar": 4400.43
     }
