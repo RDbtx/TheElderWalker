@@ -14,7 +14,7 @@
     "x": 755,
     "y": 115,
     "neighbors": {
-      "Solitude:": 1350.69,
+      "Solitude": 1350.69,
       "Giant's Coast": 1650.4
     }
   },
@@ -225,7 +225,7 @@
     }
   },
   "Dragon Bridge": {
-    "x": 4665,
+    "x": 466,
     "y": 357,
     "neighbors": {
       "Solitude": 2596.49,
@@ -396,7 +396,7 @@
       "Rannveig": 2258.91
     }
   },
-  "Lost valley": {
+  "Lost Valley": {
     "x": 526,
     "y": 1012,
     "neighbors": {
@@ -410,7 +410,7 @@
     "neighbors": {
       "H'roldan": 2538.4,
       "Rorikstead": 1928.47,
-      "Lost valley": 2353.51,
+      "Lost Valley": 2353.51,
       "Broken Fang": 1202.31
     }
   },
@@ -642,7 +642,7 @@
     "y": 1164,
     "neighbors": {
       "Riverwood": 1542.08,
-      "Pinewood": 743.62,
+      "Pinewatch": 743.62,
       "Helgen": 1492.3,
       "Neugard Watch": 2157.01,
       "Ilinalta's Deep": 1997.1
@@ -828,7 +828,7 @@
     "x": 1246,
     "y": 427,
     "neighbors": {
-      "Bradmont": 1826.63,
+      "Bardmont": 1826.63,
       "Helarchen Creek": 796.27,
       "Frostmere": 1861.88,
       "Fort Dunstad": 887.08
@@ -1195,7 +1195,7 @@
     "y": 1066,
     "neighbors": {
       "Throat of the World": 2196.71,
-      "High Hrotgar": 4400.43
+      "Ivarstead": 4400.43
     }
   },
   "Throat of the World": {
