@@ -1,19 +1,19 @@
 from src.search_algorithms import *
 
-
 map_location = "../map.json"
 
 if __name__ == "__main__":
+    map = load_graph_and_plot(map_location)
 
     print("\n---- THE ELDER WALKER ----")
     print("\nCities and locations of Skyrim:\n")
-    cities = print_cities_names(map_location)
-    map = load_graph_and_plot(map_location, bidirectional=True)
+    cities = map.get_names()
+
     print("Total number of locations:", len(cities))
     working = True
     while working:
 
-        menu_decisions = [0,1,2]
+        menu_decisions = [0, 1, 2]
         print("\nWhat do you want to do?")
         print("1- Create your journey")
         print("2- Show Skyrim Map")
@@ -28,19 +28,19 @@ if __name__ == "__main__":
             starting_location = ""
             destination = ""
             while starting_location not in cities:
-                starting_location = input("enter your starting location: ")
+                starting_location = input("Enter your starting location: ")
             while destination not in cities:
-                destination = input("enter your goal location: ")
-
+                destination = input("Enter your goal location: ")
 
             start = map.get(starting_location)
             goal = map.get(destination)
 
             print("\nCalculating your journey...")
-            path, cost, nodes_a = astar(map, start, goal, heuristic=heu_euclidean)
+            path, cost, nodes_a = astar(map, start, goal)
             print("A*:", " -> ".join(n.name for n in path), f"| total cost: {cost:.2f} | Nodes expanded: {nodes_a}")
-            path, cost, nodes_d= dijkstra(map, start, goal)
-            print("DIJKSTRA:", " -> ".join(n.name for n in path), f"| total cost: {cost:.2f} | Nodes expanded: {nodes_d}")
+            path, cost, nodes_d = dijkstra(map, start, goal)
+            print("DIJKSTRA:", " -> ".join(n.name for n in path),
+                  f"| total cost: {cost:.2f} | Nodes expanded: {nodes_d}")
             path, cost, nodes_bf = bfs(map, start, goal)
             print("BFS:", " -> ".join(n.name for n in path), f"| total jumps: {cost} | Nodes expanded: {nodes_bf}")
             path, cost, nodes_df = dfs(map, start, goal)
@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
         elif decision == 2:
             print("\nCities and locations of Skyrim:")
-            _ = print_cities_names(map_location)
+            _ = map.get_names()
             print("Total number of locations:", len(cities))
 
         elif decision == 0:
