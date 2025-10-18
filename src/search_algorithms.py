@@ -142,7 +142,7 @@ def heu_euclidean(location1: Location, location2: Location):
     if Location1_coordinates is None or Location2_coordinates is None:
         return 0.0
     (x1, y1), (x2, y2) = Location1_coordinates, Location2_coordinates
-    euclidean_distance = math.sqrt(pow((x1 - x2), 2) + pow((x1 - x2), 2))
+    euclidean_distance = math.sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2))
     return COST_PER_PIXEL * euclidean_distance
 
 

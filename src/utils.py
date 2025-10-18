@@ -102,6 +102,7 @@ class Graph:
         cities = []
         for elem in self.nodes.keys():
             cities.append(elem)
+            print(elem)
         return sorted(cities)
 
 
