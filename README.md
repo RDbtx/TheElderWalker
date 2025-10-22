@@ -22,8 +22,8 @@ The project implements and analyzes four classical search algorithms:
 |------------|-------------|
 | **A\*** | Uses both actual cost and heuristic estimates to find the optimal path efficiently. |
 | **Dijkstra** | Finds the shortest path by exploring all nodes with increasing cumulative cost. |
-| **Breadth-First Search (BFS)** | Explores all nodes at the current depth before moving deeper; guarantees optimal paths only for unweighted graphs. |
-| **Depth-First Search (DFS)** | Explores as far as possible along each branch before backtracking; not guaranteed to find the optimal path. |
+| **Breadth-First Search (BFS)** | Explores all nodes at the current depth before moving deeper. Guarantees optimal paths only for unweighted graphs. |
+| **Depth-First Search (DFS)** | Explores as far as possible along each branch before backtracking. Not guaranteed to find the optimal path. |
 
 
 ##  How It Works
