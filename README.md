@@ -30,8 +30,10 @@ The project implements and analyzes four classical search algorithms:
 
 1. The map of Skyrim is loaded as a **graph** structure (nodes = cities, edges = paths).  
 2. The user selects a start and goal location.  
-3. Each algorithm runs independently to find a path.  
+3. The user choose one of the algorithms to find a path.  
 4. The system measures:
    - Path length (depth)
    - Number of expanded nodes
-5. The data is analyzed and visualized using **matplotlib**.
+   - Processing time
+   - Path Cost
+5. The data is then visualized using **matplotlib**.
