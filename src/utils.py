@@ -224,7 +224,7 @@ def standard_deviation(data: list):
     return standard_deviation
 
 
-def plot_path(path: list, algorithm_name: str):
+def plot_path(path: list, algorithm_name: str, start: Location, goal: Location):
     x_coords, y_coords = [], []
     for loc in path:
         x_coord, y_coord = loc.coords()
@@ -234,12 +234,14 @@ def plot_path(path: list, algorithm_name: str):
 
     plt.figure(figsize=(10, 10))
     plt.scatter(x_coords, y_coords, marker='o', color='blue', zorder=3)
+    plt.setp(plt.xticks([]), visible=False)
+    plt.setp(plt.yticks([]), visible=False)
     plt.plot(x_coords, y_coords, marker='o', linestyle='-', color='gray', linewidth=2)
 
     for i, name in enumerate(names):
-        plt.text(x_coords[i], y_coords[i] + 5, name, fontsize=9, fontweight='bold')
+        plt.text(x_coords[i] + 5, y_coords[i] + 10, name, fontsize=9, fontweight='bold')
 
-    plt.title(f"{algorithm_name} Generated Path Visualization", fontweight='bold')
+    plt.title(f"{algorithm_name} Generated Path [{start.name} -> {goal.name}]", fontweight='bold')
     plt.grid(False)
 
     # Show plot

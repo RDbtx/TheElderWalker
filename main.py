@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
         decision = 5
         while decision not in menu_decisions:
-            decision = int(input("select your decision: [1/2/3/0]: "))
+            decision = int(input("select your decision [1/2/3/0]: "))
 
         print("\n")
         if decision == 1:
@@ -38,27 +38,42 @@ if __name__ == "__main__":
             start = map.get(starting_location)
             goal = map.get(destination)
 
+            algorithm_decisions = [1, 2, 3, 4]
+            print("\nWhat algorithm do you want to use?")
+            print("1- A*")
+            print("2- Dijkstra")
+            print("3- Breath first search")
+            print("4- Depth first search")
+            algorithm_decision = 5
+            while algorithm_decision not in algorithm_decisions:
+                algorithm_decision = int(input("select your algorithm [1/2/3/4]: "))
+
+            print("\n")
             print("\nCalculating your journey...")
-            path, cost, nodes_a, time_a = astar(map, start, goal)
-            print("A*:", " -> ".join(n.name for n in path),
-                  f"| total cost: {cost:.2f} | Nodes expanded: {nodes_a} | processing time: {time_a}")
 
-            plot_path(path, "A*")
-            path, cost, nodes_d, time_d = dijkstra(map, start, goal)
-            print("DIJKSTRA:", " -> ".join(n.name for n in path),
-                  f"| total cost: {cost:.2f} | Nodes expanded: {nodes_d} | processing time: {time_d}")
-            plot_path(path, "DIJKSTRA")
-            path, cost, nodes_bf, time_bf = bfs(map, start, goal)
-            print("BFS:", " -> ".join(n.name for n in path),
-                  f"| total jumps: {cost} | Nodes expanded: {nodes_bf} | processing time: {time_bf}")
-            plot_path(path, "BFS")
-            path, cost, nodes_df, time_df = dfs(map, start, goal)
-            print("DFS:", " -> ".join(n.name for n in path),
-                  f"| total jumps: {cost} | Nodes expanded: {nodes_df} | processing time: {time_df}")
-            plot_path(path, "DFS")
+            if algorithm_decision == 1:
+                path, cost, nodes_a, time_a = astar(map, start, goal)
+                print("A*:", " -> ".join(n.name for n in path),
+                      f"| total cost: {cost:.2f} | Nodes expanded: {nodes_a} | processing time: {time_a}")
+                plot_path(path, "A*", start, goal)
 
-            risultati_a, risultati_d, risultati_bf, risultati_df = deviation_comparison(cities, map)
-            plot_performances(risultati_a, risultati_d, risultati_bf, risultati_df)
+            if algorithm_decision == 2:
+                path, cost, nodes_d, time_d = dijkstra(map, start, goal)
+                print("DIJKSTRA:", " -> ".join(n.name for n in path),
+                      f"| total cost: {cost:.2f} | Nodes expanded: {nodes_d} | processing time: {time_d}")
+                plot_path(path, "DIJKSTRA", start, goal)
+
+            if algorithm_decision == 3:
+                path, cost, nodes_bf, time_bf = bfs(map, start, goal)
+                print("BFS:", " -> ".join(n.name for n in path),
+                      f"| total jumps: {cost} | Nodes expanded: {nodes_bf} | processing time: {time_bf}")
+                plot_path(path, "BFS", start, goal)
+
+            if algorithm_decision == 4:
+                path, cost, nodes_df, time_df = dfs(map, start, goal)
+                print("DFS:", " -> ".join(n.name for n in path),
+                      f"| total jumps: {cost} | Nodes expanded: {nodes_df} | processing time: {time_df}")
+                plot_path(path, "DFS", start, goal)
 
         elif decision == 2:
             print("\nCities and locations of Skyrim:")
