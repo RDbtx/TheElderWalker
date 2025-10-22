@@ -36,15 +36,15 @@ if __name__ == "__main__":
             goal = map.get(destination)
 
             print("\nCalculating your journey...")
-            path, cost, nodes_a = astar(map, start, goal)
-            print("A*:", " -> ".join(n.name for n in path), f"| total cost: {cost:.2f} | Nodes expanded: {nodes_a}")
-            path, cost, nodes_d = dijkstra(map, start, goal)
+            path, cost, nodes_a, time_a = astar(map, start, goal)
+            print("A*:", " -> ".join(n.name for n in path), f"| total cost: {cost:.2f} | Nodes expanded: {nodes_a} | processing time: {time_a}")
+            path, cost, nodes_d, time_d = dijkstra(map, start, goal)
             print("DIJKSTRA:", " -> ".join(n.name for n in path),
-                  f"| total cost: {cost:.2f} | Nodes expanded: {nodes_d}")
-            path, cost, nodes_bf = bfs(map, start, goal)
-            print("BFS:", " -> ".join(n.name for n in path), f"| total jumps: {cost} | Nodes expanded: {nodes_bf}")
-            path, cost, nodes_df = dfs(map, start, goal)
-            print("DFS:", " -> ".join(n.name for n in path), f"| total jumps: {cost} | Nodes expanded: {nodes_df}")
+                  f"| total cost: {cost:.2f} | Nodes expanded: {nodes_d} | processing time: {time_d}")
+            path, cost, nodes_bf, time_bf = bfs(map, start, goal)
+            print("BFS:", " -> ".join(n.name for n in path), f"| total jumps: {cost} | Nodes expanded: {nodes_bf} | processing time: {time_bf}")
+            path, cost, nodes_df, time_df = dfs(map, start, goal)
+            print("DFS:", " -> ".join(n.name for n in path), f"| total jumps: {cost} | Nodes expanded: {nodes_df} | processing time: {time_df}")
 
         elif decision == 2:
             print("\nCities and locations of Skyrim:")

@@ -2,7 +2,11 @@ import math
 import heapq
 from collections import deque
 from itertools import count
+
+from fontTools.ttx import process
+
 from src.utils import *
+import time
 
 COST_PER_PIXEL = 10  # scaled cost per pixel distance
 
@@ -22,6 +26,7 @@ def bfs(graph: Graph, start: Location, goal: Location):
     - number of jumps: the number of jumps from start to goal
     - explored nodes: the number of explored nodes
     """
+    process_time = time.time()
     queue = deque([start])
     visited = {start}
     came_from = {}
@@ -33,7 +38,8 @@ def bfs(graph: Graph, start: Location, goal: Location):
 
         if node == goal:
             path = reconstruct_path(came_from, start, goal)
-            return path, len(path) - 1, nodes_expanded
+            process_time = time.time() - process_time
+            return path, len(path) - 1, nodes_expanded, process_time
 
         for nbr in graph.neighbors(node):
             if nbr not in visited:
@@ -41,7 +47,8 @@ def bfs(graph: Graph, start: Location, goal: Location):
                 came_from[nbr] = node
                 queue.append(nbr)
 
-    return [], 0, nodes_expanded
+    process_time = time.time() - process_time
+    return [], 0, nodes_expanded, process_time
 
 
 def dfs(graph: Graph, start: Location, goal: Location):
@@ -58,7 +65,7 @@ def dfs(graph: Graph, start: Location, goal: Location):
     - number of jumps: the number of jumps from start to goal
     - explored nodes: the number of explored nodes
     """
-
+    process_time = time.time()
     stack = [start]
     visited = {start}
     came_from = {}
@@ -70,7 +77,8 @@ def dfs(graph: Graph, start: Location, goal: Location):
 
         if node == goal:
             path = reconstruct_path(came_from, start, goal)
-            return path, len(path) - 1, nodes_expanded
+            process_time = time.time() - process_time
+            return path, len(path) - 1, nodes_expanded, process_time
 
         for nbr in graph.neighbors(node):
             if nbr not in visited:
@@ -78,7 +86,8 @@ def dfs(graph: Graph, start: Location, goal: Location):
                 came_from[nbr] = node
                 stack.append(nbr)
 
-    return [], 0, nodes_expanded
+    process_time = time.time() - process_time
+    return [], 0, nodes_expanded, process_time
 
 
 def dijkstra(graph: Graph, start: Location, goal: Location):
@@ -98,6 +107,7 @@ def dijkstra(graph: Graph, start: Location, goal: Location):
     - total cost of the journey: the cost of the journey
     - explored nodes: the number of explored nodes
     """
+    process_time = time.time()
     dist = {start: 0.0}
     came_from = {}
     priorityqueque = []
@@ -114,7 +124,8 @@ def dijkstra(graph: Graph, start: Location, goal: Location):
         nodes_expanded += 1
 
         if node == goal:
-            return reconstruct_path(came_from, start, goal), cost, nodes_expanded
+            process_time = time.time() - process_time
+            return reconstruct_path(came_from, start, goal), cost, nodes_expanded, process_time
 
         for neighbor, weight in graph.neighbors(node).items():
             new_cost = cost + weight
@@ -123,7 +134,8 @@ def dijkstra(graph: Graph, start: Location, goal: Location):
                 came_from[neighbor] = node
                 heapq.heappush(priorityqueque, (new_cost, next(counter), neighbor))
 
-    return [], math.inf, nodes_expanded
+    process_time = time.time() - process_time
+    return [], math.inf, nodes_expanded, process_time
 
 
 def heu_euclidean(location1: Location, location2: Location):
@@ -168,6 +180,7 @@ def astar(graph: Graph, start: Location, goal: Location, heuristic=None):
     if heuristic is None:
         heuristic = heu_euclidean
 
+    process_time = time.time()
     g_score = {start: 0.0}
     came_from = {}
     priorityqueque = []
@@ -184,7 +197,8 @@ def astar(graph: Graph, start: Location, goal: Location, heuristic=None):
         nodes_expanded += 1
 
         if node == goal:
-            return reconstruct_path(came_from, start, goal), g_score[node], nodes_expanded
+            process_time = time.time() - process_time
+            return reconstruct_path(came_from, start, goal), g_score[node], nodes_expanded, process_time
 
         for neighbor, weight in graph.neighbors(node).items():
             tentative_g = g_score[node] + weight
@@ -194,4 +208,5 @@ def astar(graph: Graph, start: Location, goal: Location, heuristic=None):
                 f = tentative_g + heuristic(neighbor, goal)
                 heapq.heappush(priorityqueque, (f, next(counter), neighbor))
 
-    return [], math.inf, nodes_expanded
+    process_time = time.time() - process_time
+    return [], math.inf, nodes_expanded, process_time
