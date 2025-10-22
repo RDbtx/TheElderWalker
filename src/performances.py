@@ -1,5 +1,3 @@
-import numpy as np
-
 from src.search_algorithms import *
 
 
@@ -19,7 +17,6 @@ def deviation_comparison(cities: list, map: Graph):
                                      "Dijkstra": nodes_d,
                                      "BFS": nodes_bf,
                                      "DFS": nodes_df})
-
     asse_x = {}
     for record in performances:
         profondita = record["profondità"]
@@ -63,15 +60,14 @@ def plot_performances(risultati_a, risultati_d, risultati_bf, risultati_df):
     plt.plot(depths, mean_bf, label='BFS Mean', color='orange', marker='o')
     plt.plot(depths, mean_df, label='DFS Mean', color='red', marker='o')
 
-    plt.plot(depths, std_a, label='A* Std', color='blue', linestyle='--')
-    plt.plot(depths, std_d, label='Dijkstra Std', color='green', linestyle='--')
-    plt.plot(depths, std_bf, label='BFS Std', color='orange', linestyle='--')
-    plt.plot(depths, std_df, label='DFS Std', color='red', linestyle='--')
+    plt.plot(depths, std_a, label='A* Std dev', color='blue', linestyle='--')
+    plt.plot(depths, std_d, label='Dijkstra Std dev', color='green', linestyle='--')
+    plt.plot(depths, std_bf, label='BFS Std dev', color='orange', linestyle='--')
+    plt.plot(depths, std_df, label='DFS Std dev', color='red', linestyle='--')
 
     plt.xlabel('Solution Depth (Optimal Path Length)')
     plt.ylabel('Expanded Nodes')
     plt.title('Mean and Standard Deviation of Expanded Nodes vs Solution Depth', fontsize=14, fontweight='bold')
     plt.legend()
     plt.grid(True, linestyle='--', alpha=0.6)
-    plt.tight_layout()
     plt.show()
