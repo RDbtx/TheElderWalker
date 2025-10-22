@@ -1,5 +1,5 @@
 from src.search_algorithms import *
-from src.performances import deviation_comparison, plot_performances
+from src.performances import node_expansion_performances_computation, plot_performances
 
 map_location = "../map.json"
 
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         elif decision == 3:
             print("\n---- PERFORMACES -----")
             print("Performances report generation...")
-            risultati_a, risultati_d, risultati_bf, risultati_df = deviation_comparison(cities, map)
+            risultati_a, risultati_d, risultati_bf, risultati_df = node_expansion_performances_computation(cities, map)
             plot_performances(risultati_a, risultati_d, risultati_bf, risultati_df)
 
         elif decision == 0:

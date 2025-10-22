@@ -211,10 +211,30 @@ def load_graph_and_plot(json_path: str):
 
 
 def mean(data: list) -> float:
+    """
+    Calculates the mean value of a list of numbers.
+
+    Input:
+    - data: a list of numbers
+
+    Output:
+    - mean: the mean of the list of numbers
+
+    """
+
     return sum(data) / len(data)
 
 
 def standard_deviation(data: list):
+    """
+    Computes the standard deviation of a list of numbers.
+
+    Input:
+    - data: a list of numbers
+
+    Output:
+    - std: the standard deviation of the list of numbers
+    """
     deviations = []
     for d in data:
         deviations.append(pow(d - mean(data), 2))
@@ -225,6 +245,16 @@ def standard_deviation(data: list):
 
 
 def plot_path(path: list, algorithm_name: str, start: Location, goal: Location):
+    """
+    This functions plots the given path to create a visual representation of the algorithm output.
+
+    Inputs:
+    - path: the path to the path
+    - algorithm_name: the name of the algorithm
+    - start: the starting location
+    - goal: the goal location
+
+    """
     x_coords, y_coords = [], []
     for loc in path:
         x_coord, y_coord = loc.coords()

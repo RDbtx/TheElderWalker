@@ -1,7 +1,26 @@
 from src.search_algorithms import *
 
 
-def deviation_comparison(cities: list, map: Graph):
+def node_expansion_performances_computation(cities: list, map: Graph):
+    """
+    Computes node expansion performance (mean and standard deviation)
+    for each possible transition between map locations, across multiple search algorithms.
+
+    For every pair of distinct cities in the given map, the function runs four search algorithms
+    (A*, Dijkstra, Breadth-First Search, and Depth-First Search), measuring how many nodes
+    each algorithm expands to reach the goal. The results are grouped by the optimal path
+    depth, and statistical summaries (mean and standard deviation) are computed for each algorithm.
+
+    Inputs:
+    - cities: List of city names (nodes) in the map.
+    - map: The graph object representing the map, containing nodes and connections.
+
+    Outputs:
+    - risultati_a: Mean and standard deviation of node expansions by A*, grouped by optimal path depth.
+    - risultati_d: Mean and standard deviation of node expansions by Dijkstra, grouped by optimal path depth.
+    - risultati_bf: Mean and standard deviation of node expansions by Breadth-First Search, grouped by optimal path depth.
+    - risultati_df: Mean and standard deviation of node expansions by Depth-First Search, grouped by optimal path depth.
+    """
     performances = []
     for location in cities:
         for location2 in cities:
@@ -40,6 +59,21 @@ def deviation_comparison(cities: list, map: Graph):
 
 
 def plot_performances(risultati_a, risultati_d, risultati_bf, risultati_df):
+    """
+    Plots the evolution of the mean and standard deviation of expanded nodes
+    as a function of the optimal path depth, for each search algorithm.
+
+    Each curve represents either the mean or standard deviation of the number
+    of expanded nodes required to reach the goal, over the optimal
+    solution depth found by A*.
+
+    Inputs:
+    - risultati_a : Mean and standard deviation by optimal path depth for the A* algorithm.
+    - risultati_d : Mean and standard deviation by optimal path depth for the Dijkstra algorithm.
+    - risultati_bf: Mean and standard deviation by optimal path depth for the Breadth-First Search algorithm.
+    - risultati_df: Mean and standard deviation by optimal path depth for the Depth-First Search algorithm.
+
+    """
     depths = sorted(risultati_a.keys())
 
     mean_a = [risultati_a[d][0] for d in depths]
