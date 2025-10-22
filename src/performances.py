@@ -61,11 +61,11 @@ def node_expansion_performances_computation(cities: list, map: Graph):
 def plot_performances(risultati_a, risultati_d, risultati_bf, risultati_df):
     """
     Plots the evolution of the mean and standard deviation of expanded nodes
-    as a function of the optimal path depth, for each search algorithm.
+    as a function of the optimal path depth for each search algorithm.
 
-    Each curve represents either the mean or standard deviation of the number
-    of expanded nodes required to reach the goal, over the optimal
-    solution depth found by A*.
+    Each curve represents the mean number of expanded nodes, while the error bars
+    indicate the standard deviation across multiple runs for that solution depth.
+    The x-axis corresponds to the optimal solution depth as determined by the A* algorithm.
 
     Inputs:
     - risultati_a : Mean and standard deviation by optimal path depth for the A* algorithm.
@@ -89,19 +89,16 @@ def plot_performances(risultati_a, risultati_d, risultati_bf, risultati_df):
     std_df = [risultati_df[d][1] for d in depths]
 
     plt.figure(figsize=(10, 10))
-    plt.plot(depths, mean_a, label='A* Mean', color='blue', marker='o')
-    plt.plot(depths, mean_d, label='Dijkstra Mean', color='green', marker='o')
-    plt.plot(depths, mean_bf, label='BFS Mean', color='orange', marker='o')
-    plt.plot(depths, mean_df, label='DFS Mean', color='red', marker='o')
 
-    plt.plot(depths, std_a, label='A* Std dev', color='blue', linestyle='--')
-    plt.plot(depths, std_d, label='Dijkstra Std dev', color='green', linestyle='--')
-    plt.plot(depths, std_bf, label='BFS Std dev', color='orange', linestyle='--')
-    plt.plot(depths, std_df, label='DFS Std dev', color='red', linestyle='--')
+    plt.errorbar(depths, mean_a, yerr=std_a, label='A*', color='blue', marker='o', capsize=5)
+    plt.errorbar(depths, mean_d, yerr=std_d, label='Dijkstra', color='green', marker='o', capsize=5)
+    plt.errorbar(depths, mean_bf, yerr=std_bf, label='BFS', color='orange', marker='o', capsize=5)
+    plt.errorbar(depths, mean_df, yerr=std_df, label='DFS', color='red', marker='o', capsize=5)
 
     plt.xlabel('Solution Depth (Optimal Path Length)')
     plt.ylabel('Expanded Nodes')
-    plt.title('Mean and Standard Deviation of Expanded Nodes vs Solution Depth', fontsize=14, fontweight='bold')
+    plt.title('Mean and Standard Deviation of Expanded Nodes vs Solution Depth',
+              fontsize=14, fontweight='bold')
     plt.legend()
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.show()
