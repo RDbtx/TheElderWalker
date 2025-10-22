@@ -3,8 +3,6 @@ import heapq
 from collections import deque
 from itertools import count
 
-from fontTools.ttx import process
-
 from src.utils import *
 import time
 

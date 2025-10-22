@@ -1,4 +1,6 @@
 import json
+import math
+
 import matplotlib.pyplot as plt
 
 
@@ -206,3 +208,39 @@ def load_graph_and_plot(json_path: str):
     g = load_graph_from_json(json_path)
     plot_graph(g)
     return g
+
+
+def mean(data: list) -> float:
+    return sum(data) / len(data)
+
+
+def standard_deviation(data: list):
+    deviations = []
+    for d in data:
+        deviations.append(pow(d - mean(data), 2))
+    deviation_sum = sum(deviations)
+    variance = deviation_sum / len(data)
+    standard_deviation = math.sqrt(variance)
+    return standard_deviation
+
+
+def plot_path(path: list, algorithm_name: str):
+    x_coords, y_coords = [], []
+    for loc in path:
+        x_coord, y_coord = loc.coords()
+        x_coords.append(x_coord)
+        y_coords.append(y_coord)
+        names = [loc.name for loc in path]
+
+    plt.figure(figsize=(10, 10))
+    plt.scatter(x_coords, y_coords, marker='o', color='blue', zorder=3)
+    plt.plot(x_coords, y_coords, marker='o', linestyle='-', color='gray', linewidth=2)
+
+    for i, name in enumerate(names):
+        plt.text(x_coords[i], y_coords[i] + 5, name, fontsize=9, fontweight='bold')
+
+    plt.title(f"{algorithm_name} Generated Path Visualization", fontweight='bold')
+    plt.grid(False)
+
+    # Show plot
+    plt.show()
