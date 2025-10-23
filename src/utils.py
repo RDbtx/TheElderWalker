@@ -146,11 +146,11 @@ def load_graph_from_json(path: str) -> Graph:
 
     g = Graph()
 
-    # Create nodes
+
     for name, info in data.items():
         g.add_location(name, info["x"], info["y"])
 
-    # Create edges
+
     for name, info in data.items():
         for nbr, dist in info["neighbors"].items():
             g.connect(name, nbr, dist)
@@ -174,10 +174,10 @@ def plot_graph(g: Graph):
     ax.set_xticks([])
     ax.set_yticks([])
 
-    # Draw edges
+
     for u in g.locations():
         for v, w in g.neighbors(u).items():
-            if u.name < v.name:  # draw each undirected edge once
+            if u.name < v.name:
                 x1, y1 = pos[u]
                 x2, y2 = pos[v]
                 ax.plot([x1, x2], [y1, y2], 'gray', linewidth=1)
@@ -274,5 +274,4 @@ def plot_path(path: list, algorithm_name: str, start: Location, goal: Location):
     plt.title(f"{algorithm_name} Generated Path [{start.name} -> {goal.name}]", fontweight='bold')
     plt.grid(False)
 
-    # Show plot
     plt.show()

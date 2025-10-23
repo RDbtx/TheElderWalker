@@ -1,7 +1,7 @@
 from src.search_algorithms import *
 
 
-def node_expansion_performances_computation(cities: list, map: Graph):
+def node_expansion_performances_computation(cities: list, graph: Graph):
     """
     Computes node expansion performance (mean and standard deviation)
     for each possible transition between map locations, across multiple search algorithms.
@@ -25,35 +25,35 @@ def node_expansion_performances_computation(cities: list, map: Graph):
     for location in cities:
         for location2 in cities:
             if location != location2:
-                start = map.get(location)
-                goal = map.get(location2)
-                path_a, _, nodes_a, _ = astar(map, start, goal)
-                _, _, nodes_d, _ = dijkstra(map, start, goal)
-                _, _, nodes_bf, _ = bfs(map, start, goal)
-                _, _, nodes_df, _ = dfs(map, start, goal)
+                start = graph.get(location)
+                goal = graph.get(location2)
+                path_a, _, nodes_a, _ = astar(graph, start, goal)
+                _, _, nodes_d, _ = dijkstra(graph, start, goal)
+                _, _, nodes_bf, _ = bfs(graph, start, goal)
+                _, _, nodes_df, _ = dfs(graph, start, goal)
                 performances.append({"profondità": len(path_a),
                                      "A*": nodes_a,
                                      "Dijkstra": nodes_d,
                                      "BFS": nodes_bf,
                                      "DFS": nodes_df})
-    asse_x = {}
+    x_axis = {}
     for record in performances:
-        profondita = record["profondità"]
-        if profondita not in asse_x:
-            asse_x[profondita] = {"A*": [], "Dijkstra": [], "BFS": [], "DFS": []}
+        depth = record["profondità"]
+        if depth not in x_axis:
+            x_axis[depth] = {"A*": [], "Dijkstra": [], "BFS": [], "DFS": []}
         for algo in ["A*", "Dijkstra", "BFS", "DFS"]:
-            asse_x[profondita][algo].append(record[algo])
+            x_axis[depth][algo].append(record[algo])
 
     risultati_a = {}
     risultati_d = {}
     risultati_bf = {}
     risultati_df = {}
 
-    for profondita, dati in asse_x.items():
-        risultati_a[profondita] = [mean(dati["A*"]), standard_deviation(dati["A*"])]
-        risultati_d[profondita] = [mean(dati["Dijkstra"]), standard_deviation(dati["Dijkstra"])]
-        risultati_bf[profondita] = [mean(dati["BFS"]), standard_deviation(dati["BFS"])]
-        risultati_df[profondita] = [mean(dati["DFS"]), standard_deviation(dati["DFS"])]
+    for depth, data in x_axis.items():
+        risultati_a[depth] = [mean(data["A*"]), standard_deviation(data["A*"])]
+        risultati_d[depth] = [mean(data["Dijkstra"]), standard_deviation(data["Dijkstra"])]
+        risultati_bf[depth] = [mean(data["BFS"]), standard_deviation(data["BFS"])]
+        risultati_df[depth] = [mean(data["DFS"]), standard_deviation(data["DFS"])]
 
     return risultati_a, risultati_d, risultati_bf, risultati_df
 
